@@ -42,6 +42,10 @@ public class ServArticulos {
     public boolean existByNombre(String nombre){
         return rArticulos.existsByNombre(nombre);
     }
+    
+    public Optional<Articulos> findById (int id){
+        return rArticulos.findById(id);
+    }  
 }
 
 
