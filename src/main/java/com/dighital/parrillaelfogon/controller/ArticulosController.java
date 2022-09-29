@@ -44,7 +44,7 @@ public class ArticulosController {
         return new ResponseEntity(articulos, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!sArticulos.existsById(id)) {
@@ -54,7 +54,7 @@ public class ArticulosController {
         return new ResponseEntity(new Mensaje("Objeto eliminado correctamente"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoArticulos dtoarticulos) {
         if (StringUtils.isBlank(dtoarticulos.getNombre())) {
@@ -92,7 +92,7 @@ public class ArticulosController {
         return new ResponseEntity(new Mensaje("Nuevo objeto creado exitosamente"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoArticulos dtoarticulos){
         if(!sArticulos.existsById(id)){
