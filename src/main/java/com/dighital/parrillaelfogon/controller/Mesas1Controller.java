@@ -56,7 +56,7 @@ public class Mesas1Controller {
     public ResponseEntity<?> create(@RequestBody dtoMesas1 dtomesas1) {
         
         Mesas1 mesas1 = new Mesas1(
-                dtomesas1.getEstado(), dtomesas1.getComanda(), dtomesas1.getCierre(), dtomesas1.getLiquidada());
+                dtomesas1.getEstado(), dtomesas1.getComanda(), dtomesas1.getCierre(), dtomesas1.getLiquidada(), dtomesas1.getImagen());
         sMesas1.save(mesas1);
         return new ResponseEntity(new Mensaje("Nueva Mesa creada exitosamente"), HttpStatus.OK);
     }
@@ -78,6 +78,7 @@ public class Mesas1Controller {
         mesas1.setComanda(dtomesas1.getComanda());
         mesas1.setCierre(dtomesas1.getCierre());
         mesas1.setLiquidada(dtomesas1.getLiquidada());
+        mesas1.setImagen(dtomesas1.getImagen());
                
         sMesas1.save(mesas1);
         

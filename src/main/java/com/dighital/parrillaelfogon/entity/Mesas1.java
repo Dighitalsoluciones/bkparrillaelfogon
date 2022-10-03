@@ -1,6 +1,7 @@
 
 package com.dighital.parrillaelfogon.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,16 +23,20 @@ public class Mesas1 {
     private String cierre;
     private String liquidada;
     
+    @Column(name = "imagen", nullable = false, length = 450)
+    private String imagen;
+    
     //Constructor
 
     public Mesas1() {
     }
 
-    public Mesas1(String estado, String comanda, String cierre, String liquidada) {
+    public Mesas1(String estado, String comanda, String cierre, String liquidada, String imagen) {
         this.estado = estado;
         this.comanda = comanda;
         this.cierre = cierre;
         this.liquidada = liquidada;
+        this.imagen = imagen;
     }
     
 }
