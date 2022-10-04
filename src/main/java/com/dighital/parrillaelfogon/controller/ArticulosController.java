@@ -87,7 +87,7 @@ public class ArticulosController {
 
         Articulos articulos = new Articulos(
                 dtoarticulos.getNombre(), dtoarticulos.getFamilia(), dtoarticulos.getStock(), dtoarticulos.getPuntorepo(), dtoarticulos.getCosto(), dtoarticulos.getPrecioventa(),
-                dtoarticulos.getStockinicial());
+                dtoarticulos.getStockinicial(), dtoarticulos.getImagen());
         sArticulos.save(articulos);
         return new ResponseEntity(new Mensaje("Nuevo objeto creado exitosamente"), HttpStatus.OK);
     }
@@ -137,6 +137,7 @@ public class ArticulosController {
         articulos.setCosto(dtoarticulos.getCosto());
         articulos.setPrecioventa(dtoarticulos.getPrecioventa());
         articulos.setStockinicial(dtoarticulos.getStockinicial());
+        articulos.setImagen (dtoarticulos.getImagen());
                
         sArticulos.save(articulos);
         

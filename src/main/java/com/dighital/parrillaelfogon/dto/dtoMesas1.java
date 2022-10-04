@@ -18,6 +18,8 @@ public class dtoMesas1 {
     private String liquidada;
     @NotBlank
     private String imagen;
+    @NotBlank
+    private String numeroMesa;
    
     
     //constructor
@@ -25,11 +27,12 @@ public class dtoMesas1 {
     public dtoMesas1() {
     }
 
-    public dtoMesas1(String comanda, String cierre, String liquidada, String imagen) {
+    public dtoMesas1(String comanda, String cierre, String liquidada, String imagen, String numeroMesa) {
         this.comanda = comanda;
         this.cierre = cierre;
         this.liquidada = liquidada;
         this.imagen = imagen;
+        this.numeroMesa = numeroMesa;
     }
     
 }
