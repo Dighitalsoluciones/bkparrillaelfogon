@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RepMesa1 extends JpaRepository<Mesas1, Integer> {
-    public Optional<Mesas1> findByEstado(String estado);
-    public boolean existsByEstado(String estado);
+    public Optional<Mesas1> findByNumeroMesa(String numeromesa);
+    public boolean existsByNumeroMesa(String numeromesa);
     
 }

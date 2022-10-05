@@ -61,14 +61,14 @@ public class Mesas1Controller {
         return new ResponseEntity(new Mensaje("Nueva Mesa creada exitosamente"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoMesas1 dtomesas1){
         if(!sMesas1.existsById(id)){
             return new ResponseEntity(new Mensaje("Id inexistente"), HttpStatus.NOT_FOUND);
         }
-        if(sMesas1.existByEstado(dtomesas1.getEstado()) && sMesas1.
-                getByEstado(dtomesas1.getEstado()).get().getId() != id){
+        if(sMesas1.existByNumeroMesa(dtomesas1.getNumeroMesa()) && sMesas1.
+                getByNumeroMesa(dtomesas1.getNumeroMesa()).get().getId() != id){
         return new ResponseEntity(new Mensaje("Campo existente"), HttpStatus.BAD_REQUEST);
     }
                
