@@ -64,30 +64,15 @@ public class ArticulosController {
         if (StringUtils.isBlank(dtoarticulos.getFamilia())) {
             return new ResponseEntity(new Mensaje("Campo Obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (StringUtils.isBlank(dtoarticulos.getStock())) {
-            return new ResponseEntity(new Mensaje("Campo Obligatorio"), HttpStatus.BAD_REQUEST);
-        }
-        if (StringUtils.isBlank(dtoarticulos.getPuntorepo())) {
-            return new ResponseEntity(new Mensaje("Campo Obligatorio"), HttpStatus.BAD_REQUEST);
-        }
-        if (StringUtils.isBlank(dtoarticulos.getCosto())) {
-            return new ResponseEntity(new Mensaje("Campo Obligatorio"), HttpStatus.BAD_REQUEST);
-        }
-        if (StringUtils.isBlank(dtoarticulos.getPrecioventa())) {
-            return new ResponseEntity(new Mensaje("Campo Obligatorio"), HttpStatus.BAD_REQUEST);
-        }
-        if (StringUtils.isBlank(dtoarticulos.getStockinicial())) {
-            return new ResponseEntity(new Mensaje("Campo Obligatorio"), HttpStatus.BAD_REQUEST);
-        }
-   
         
+           
         if (sArticulos.existByNombre(dtoarticulos.getNombre())) {
             return new ResponseEntity(new Mensaje("Nombre ya existente"), HttpStatus.BAD_REQUEST);
         }
 
         Articulos articulos = new Articulos(
                 dtoarticulos.getNombre(), dtoarticulos.getFamilia(), dtoarticulos.getStock(), dtoarticulos.getPuntorepo(), dtoarticulos.getCosto(), dtoarticulos.getPrecioventa(),
-                dtoarticulos.getStockinicial(), dtoarticulos.getImagen());
+                dtoarticulos.getStockinicial(), dtoarticulos.getImagen(), dtoarticulos.getCantidad());
         sArticulos.save(articulos);
         return new ResponseEntity(new Mensaje("Nuevo objeto creado exitosamente"), HttpStatus.OK);
     }
@@ -109,21 +94,7 @@ public class ArticulosController {
         if(StringUtils.isBlank(dtoarticulos.getFamilia())){
             return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
         }
-        if(StringUtils.isBlank(dtoarticulos.getStock())){
-            return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
-        }
-        if(StringUtils.isBlank(dtoarticulos.getPuntorepo())){
-            return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
-        }
-        if(StringUtils.isBlank(dtoarticulos.getCosto())){
-            return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
-        }
-        if(StringUtils.isBlank(dtoarticulos.getPrecioventa())){
-            return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
-        }
-        if(StringUtils.isBlank(dtoarticulos.getStockinicial())){
-            return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
-        }
+       
         
         
         
@@ -138,6 +109,7 @@ public class ArticulosController {
         articulos.setPrecioventa(dtoarticulos.getPrecioventa());
         articulos.setStockinicial(dtoarticulos.getStockinicial());
         articulos.setImagen (dtoarticulos.getImagen());
+        articulos.setCantidad(dtoarticulos.getCantidad());
                
         sArticulos.save(articulos);
         
