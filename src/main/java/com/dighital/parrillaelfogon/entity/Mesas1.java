@@ -19,6 +19,7 @@ public class Mesas1 {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String estado;
+     @Column(name = "comanda", length = 25000)
     private String comanda;
     private String cierre;
     private String liquidada;
@@ -26,19 +27,21 @@ public class Mesas1 {
     @Column(name = "imagen", nullable = false, length = 450)
     private String imagen;
     private String numeroMesa;
+    private String totalComanda;
     
     //Constructor
 
     public Mesas1() {
     }
 
-    public Mesas1(String estado, String comanda, String cierre, String liquidada, String imagen, String numeroMesa) {
+    public Mesas1(String estado, String comanda, String cierre, String liquidada, String imagen, String numeroMesa, String totalComanda) {
         this.estado = estado;
         this.comanda = comanda;
         this.cierre = cierre;
         this.liquidada = liquidada;
         this.imagen = imagen;
         this.numeroMesa = numeroMesa;
+        this.totalComanda = totalComanda;
     }
     
 }
