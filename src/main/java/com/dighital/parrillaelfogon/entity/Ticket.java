@@ -16,7 +16,7 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "listadoArticulos", length = 30000)
+    @Column(name = "listadoArticulos", nullable = false, length = 10000)
     private String listadoArticulos;
     private String importe;
     private String observacion;
