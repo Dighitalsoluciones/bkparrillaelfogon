@@ -16,8 +16,23 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "listadoArticulos", length = 25000)
+    @Column(name = "listadoArticulos", length = 30000)
     private String listadoArticulos;
-    private String importeTicket;
+    private String importe;
+    private String observacion;
+    private String fecha;
     
+    //constructor
+
+    public Ticket() {
+    }
+
+    public Ticket(String listadoArticulos, String importe, String observacion, String fecha) {
+        this.listadoArticulos = listadoArticulos;
+        this.importe = importe;
+        this.observacion = observacion;
+        this.fecha = fecha;
+    }
+
+  
 }

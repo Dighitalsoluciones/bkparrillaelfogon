@@ -27,6 +27,7 @@ public class Mesas1 {
     @Column(name = "imagen", nullable = false, length = 450)
     private String imagen;
     private String numeroMesa;
+    @Column(name = "totalComanda", nullable = false)
     private String totalComanda;
     
     //Constructor
