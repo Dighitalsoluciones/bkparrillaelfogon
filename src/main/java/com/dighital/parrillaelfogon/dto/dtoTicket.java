@@ -16,16 +16,19 @@ public class dtoTicket {
     private String observacion;
     @NotBlank
     private String fecha;
+    @NotBlank
+    private String numerodeMesa;
     
     //constructor
 
     public dtoTicket() {
     }
 
-    public dtoTicket(String importe, String observacion, String fecha) {
+    public dtoTicket(String importe, String observacion, String fecha, String numerodeMesa) {
         this.importe = importe;
         this.observacion = observacion;
         this.fecha = fecha;
+        this.numerodeMesa = numerodeMesa;
     }
     
 }

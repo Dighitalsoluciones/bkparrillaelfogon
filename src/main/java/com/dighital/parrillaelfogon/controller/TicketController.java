@@ -55,7 +55,7 @@ public class TicketController {
     public ResponseEntity<?> create(@RequestBody dtoTicket dtoticket) {
         
         Ticket ticket = new Ticket(
-                dtoticket.getListadoArticulos(), dtoticket.getImporte(), dtoticket.getObservacion(), dtoticket.getFecha());
+                dtoticket.getListadoArticulos(), dtoticket.getImporte(), dtoticket.getObservacion(), dtoticket.getFecha(), dtoticket.getNumerodeMesa());
         sTicket.save(ticket);
         return new ResponseEntity(new Mensaje("Nueva Mesa creada exitosamente"), HttpStatus.OK);
     }
@@ -77,6 +77,7 @@ public class TicketController {
         ticket.setImporte(dtoticket.getImporte());
         ticket.setObservacion(dtoticket.getObservacion());
         ticket.setFecha(dtoticket.getFecha());
+        ticket.setNumerodeMesa(dtoticket.getNumerodeMesa());
        
                
         sTicket.save(ticket);
