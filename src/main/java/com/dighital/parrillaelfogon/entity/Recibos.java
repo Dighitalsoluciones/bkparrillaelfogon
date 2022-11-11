@@ -17,7 +17,7 @@ public class Recibos {
     private int id;
     private String fecha;
     private String corresTicket;
-    private String importe;
+    private int importe;
     private String observacion;
     private String numerodeMesa;
     private String formadepago;
@@ -27,7 +27,7 @@ public class Recibos {
     public Recibos() {
     }
 
-    public Recibos(String fecha, String corresTicket, String importe, String observacion, String numerodeMesa, String formadepago) {
+    public Recibos(String fecha, String corresTicket, int importe, String observacion, String numerodeMesa, String formadepago) {
         this.fecha = fecha;
         this.corresTicket = corresTicket;
         this.importe = importe;

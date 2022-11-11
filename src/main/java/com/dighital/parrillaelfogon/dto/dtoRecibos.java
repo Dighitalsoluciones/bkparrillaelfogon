@@ -13,7 +13,7 @@ public class dtoRecibos {
     @NotBlank
     private String corresTicket;
     @NotBlank
-    private String importe;
+    private int importe;
     @NotBlank
     private String observacion;
     @NotBlank
@@ -26,7 +26,7 @@ public class dtoRecibos {
     public dtoRecibos() {
     }
 
-    public dtoRecibos(String fecha, String corresTicket, String importe, String observacion, String numerodeMesa, String formadepago) {
+    public dtoRecibos(String fecha, String corresTicket, int importe, String observacion, String numerodeMesa, String formadepago) {
         this.fecha = fecha;
         this.corresTicket = corresTicket;
         this.importe = importe;

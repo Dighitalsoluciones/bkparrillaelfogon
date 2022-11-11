@@ -39,8 +39,8 @@ public class ServRecibos {
         return rRecibos.existsById(id);
     }
 
-    public boolean existByImporte(String importe) {
-        return rRecibos.existsByImporte(importe);
+    public boolean existByCorresTicket(String corresTicket) {
+        return rRecibos.existsByImporte(corresTicket);
     }
 
 }
