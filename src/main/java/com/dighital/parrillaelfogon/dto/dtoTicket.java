@@ -11,7 +11,7 @@ public class dtoTicket {
     @NotBlank
     private String listadoArticulos;
     @NotBlank
-    private String importe;
+    private int importe;
     @NotBlank
     private String observacion;
     @NotBlank
@@ -26,7 +26,7 @@ public class dtoTicket {
     public dtoTicket() {
     }
 
-    public dtoTicket(String importe, String observacion, String fecha, String numerodeMesa, String formadepago) {
+    public dtoTicket(int importe, String observacion, String fecha, String numerodeMesa, String formadepago) {
         this.importe = importe;
         this.observacion = observacion;
         this.fecha = fecha;

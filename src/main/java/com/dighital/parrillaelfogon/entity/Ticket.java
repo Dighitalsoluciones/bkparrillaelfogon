@@ -18,7 +18,7 @@ public class Ticket {
     private int id;
     @Column(name = "listadoArticulos", nullable = false, length = 10000)
     private String listadoArticulos;
-    private String importe;
+    private int importe;
     private String observacion;
     private String fecha;
     private String numerodeMesa;
@@ -29,7 +29,7 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(String listadoArticulos, String importe, String observacion, String fecha, String numerodeMesa, String formadepago) {
+    public Ticket(String listadoArticulos, int importe, String observacion, String fecha, String numerodeMesa, String formadepago) {
         this.listadoArticulos = listadoArticulos;
         this.importe = importe;
         this.observacion = observacion;

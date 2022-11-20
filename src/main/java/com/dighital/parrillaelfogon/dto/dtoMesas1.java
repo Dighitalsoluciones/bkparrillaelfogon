@@ -1,4 +1,3 @@
-
 package com.dighital.parrillaelfogon.dto;
 
 import javax.validation.constraints.NotBlank;
@@ -8,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class dtoMesas1 {
+
     @NotBlank
     private String estado;
     @NotBlank
@@ -20,22 +20,23 @@ public class dtoMesas1 {
     private String imagen;
     @NotBlank
     private String numeroMesa;
-     @NotBlank
+    @NotBlank
     private String totalComanda;
-   
-    
-    //constructor
+    @NotBlank
+    private String comensales;
 
+    //constructor
     public dtoMesas1() {
     }
 
-    public dtoMesas1(String comanda, String cierre, String liquidada, String imagen, String numeroMesa, String totalComanda) {
+    public dtoMesas1(String comanda, String cierre, String liquidada, String imagen, String numeroMesa, String totalComanda, String comensales) {
         this.comanda = comanda;
         this.cierre = cierre;
         this.liquidada = liquidada;
         this.imagen = imagen;
         this.numeroMesa = numeroMesa;
         this.totalComanda = totalComanda;
+        this.comensales = comensales;
     }
-    
+
 }

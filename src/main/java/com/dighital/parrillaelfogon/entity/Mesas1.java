@@ -29,13 +29,14 @@ public class Mesas1 {
     private String numeroMesa;
     @Column(name = "totalComanda", nullable = false)
     private String totalComanda;
+    private String comensales;
     
     //Constructor
 
     public Mesas1() {
     }
 
-    public Mesas1(String estado, String comanda, String cierre, String liquidada, String imagen, String numeroMesa, String totalComanda) {
+    public Mesas1(String estado, String comanda, String cierre, String liquidada, String imagen, String numeroMesa, String totalComanda, String comensales) {
         this.estado = estado;
         this.comanda = comanda;
         this.cierre = cierre;
@@ -43,6 +44,7 @@ public class Mesas1 {
         this.imagen = imagen;
         this.numeroMesa = numeroMesa;
         this.totalComanda = totalComanda;
+        this.comensales = comensales;
     }
     
 }

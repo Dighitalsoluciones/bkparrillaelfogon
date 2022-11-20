@@ -39,8 +39,8 @@ public class ServTicket {
         return rTicket.existsById(id);
     }
 
-    public boolean existByImporte(String importe) {
-        return rTicket.existsByImporte(importe);
+    public boolean existByObservacion(String observacion) {
+        return rTicket.existsByObservacion(observacion);
     }
 
 }

@@ -66,7 +66,7 @@ public class TicketController {
         if(!sTicket.existsById(id)){
             return new ResponseEntity(new Mensaje("Id inexistente"), HttpStatus.NOT_FOUND);
         }
-        if(sTicket.existByImporte(dtoticket.getImporte()) && sTicket.
+        if(sTicket.existByObservacion(dtoticket.getObservacion()) && sTicket.
                 getByFecha(dtoticket.getFecha()).get().getId() != id){
         return new ResponseEntity(new Mensaje("Campo existente"), HttpStatus.BAD_REQUEST);
     }

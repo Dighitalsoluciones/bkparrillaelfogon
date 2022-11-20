@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RepTicket extends JpaRepository<Ticket, Integer>{
     public Optional<Ticket> findByFecha(String fecha);
-    public boolean existsByImporte(String importe);
+    public boolean existsByObservacion(String observacion);
 }
