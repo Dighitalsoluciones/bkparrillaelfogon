@@ -29,7 +29,8 @@ public class dtoMesas1 {
     public dtoMesas1() {
     }
 
-    public dtoMesas1(String comanda, String cierre, String liquidada, String imagen, String numeroMesa, String totalComanda, String comensales) {
+    public dtoMesas1(String estado, String comanda, String cierre, String liquidada, String imagen, String numeroMesa, String totalComanda, String comensales) {
+        this.estado = estado;
         this.comanda = comanda;
         this.cierre = cierre;
         this.liquidada = liquidada;
