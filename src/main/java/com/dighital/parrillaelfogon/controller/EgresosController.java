@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/egresos")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://parrielfogon.web.app")
 public class EgresosController {
     
     @Autowired
