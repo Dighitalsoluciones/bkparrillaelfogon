@@ -19,7 +19,7 @@ public class Mesas1 {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String estado;
-     @Column(name = "comanda", length = 25000)
+     @Column(name = "comanda", length = 2000)
     private String comanda;
     private String cierre;
     private String liquidada;
