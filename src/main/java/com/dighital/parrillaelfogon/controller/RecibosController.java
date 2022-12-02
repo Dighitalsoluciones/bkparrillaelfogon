@@ -66,7 +66,7 @@ public class RecibosController {
         if(!sRecibos.existsById(id)){
             return new ResponseEntity(new Mensaje("Id inexistente"), HttpStatus.NOT_FOUND);
         }
-        if(sRecibos.existByCorresTicket(dtorecibos.getCorresTicket()) && sRecibos.
+        if(sRecibos.existByFormadepago(dtorecibos.getFormadepago()) && sRecibos.
                 getByFecha(dtorecibos.getFecha()).get().getId() != id){
         return new ResponseEntity(new Mensaje("Campo existente"), HttpStatus.BAD_REQUEST);
     }

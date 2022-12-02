@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RepRecibos extends JpaRepository<Recibos, Integer>{
     public Optional<Recibos> findByFecha(String fecha);
-    public boolean existsByImporte(String importe);
+    public boolean existsByFormadepago(String formadepago);
 }
 
