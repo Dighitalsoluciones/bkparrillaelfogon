@@ -26,13 +26,15 @@ public class Articulos {
     @Column(name = "imagen", nullable = false, length = 450)
     private String imagen;
     private int cantidad;
+    private String checkEdit; 
     
     //Constructor
 
     public Articulos() {
     }
 
-    public Articulos(String nombre, String familia, int stock, int puntorepo, int costo, int precioventa, int stockinicial, String imagen, int cantidad) {
+    public Articulos(String nombre, String familia, int stock, int puntorepo, int costo, int precioventa, int stockinicial,
+                     String imagen, int cantidad, String checkEdit) {
         this.nombre = nombre;
         this.familia = familia;
         this.stock = stock;
@@ -42,6 +44,7 @@ public class Articulos {
         this.stockinicial = stockinicial;
         this.imagen = imagen;
         this.cantidad = cantidad;
+        this.checkEdit = checkEdit;
               
     }
     
