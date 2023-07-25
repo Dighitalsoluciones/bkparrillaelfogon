@@ -25,6 +25,7 @@ public class dtoArticulos {
     @NotBlank
     private String imagen;
     private int cantidad;
+    private String checkEdit;
     
     
     //constructor
@@ -32,7 +33,8 @@ public class dtoArticulos {
     public dtoArticulos() {
     }
 
-    public dtoArticulos(String nombre, String familia, int stock, int puntorepo, int costo, int precioventa, int stockinicial, String imagen, int cantidad) {
+    public dtoArticulos(String nombre, String familia, int stock, int puntorepo, int costo, int precioventa, int stockinicial,
+                        String imagen, int cantidad, String checkEdit) {
         this.nombre = nombre;
         this.familia = familia;
         this.stock = stock;
@@ -42,6 +44,7 @@ public class dtoArticulos {
         this.stockinicial = stockinicial;
         this.imagen = imagen;
         this.cantidad = cantidad;
+        this.checkEdit = checkEdit;
     }
     
 }
