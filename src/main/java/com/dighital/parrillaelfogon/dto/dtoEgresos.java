@@ -20,17 +20,20 @@ public class dtoEgresos {
     private String observacion;
     @NotBlank
     private String mostrar;
+    @NotBlank
+    private String checkEd;
 
     public dtoEgresos() {
     }
 
-    public dtoEgresos(String fecha, int importe, String tipodegasto, String realizadopor, String observacion, String mostrar) {
+    public dtoEgresos(String fecha, int importe, String tipodegasto, String realizadopor, String observacion, String mostrar, String checkEd) {
         this.fecha = fecha;
         this.importe = importe;
         this.tipodegasto = tipodegasto;
         this.realizadopor = realizadopor;
         this.observacion = observacion;
         this.mostrar = mostrar;
+        this.checkEd = checkEd;
     }
     
     

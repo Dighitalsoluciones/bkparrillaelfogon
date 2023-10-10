@@ -55,7 +55,9 @@ public class RecibosController {
     public ResponseEntity<?> create(@RequestBody dtoRecibos dtorecibos) {
         
         Recibos recibos = new Recibos(
-                dtorecibos.getFecha(), dtorecibos.getCorresTicket(), dtorecibos.getImporte(), dtorecibos.getObservacion(),dtorecibos.getNumerodeMesa(), dtorecibos.getFormadepago());
+                dtorecibos.getFecha(), dtorecibos.getCorresTicket(), dtorecibos.getImporte(),
+                dtorecibos.getObservacion(),dtorecibos.getNumerodeMesa(),
+                dtorecibos.getFormadepago(), dtorecibos.getCheckEd());
         sRecibos.save(recibos);
         return new ResponseEntity(new Mensaje("Nuevo recibo creado exitosamente"), HttpStatus.OK);
     }
@@ -79,6 +81,7 @@ public class RecibosController {
         recibos.setObservacion(dtorecibos.getObservacion());
         recibos.setNumerodeMesa(dtorecibos.getNumerodeMesa());
         recibos.setFormadepago(dtorecibos.getFormadepago());
+        recibos.setCheckEd(dtorecibos.getCheckEd());
         
        
                

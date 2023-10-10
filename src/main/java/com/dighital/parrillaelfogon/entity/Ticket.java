@@ -23,19 +23,21 @@ public class Ticket {
     private String fecha;
     private String numerodeMesa;
     private String formadepago;
+    private String checkEd;
     
     //constructor
 
     public Ticket() {
     }
 
-    public Ticket(String listadoArticulos, int importe, String observacion, String fecha, String numerodeMesa, String formadepago) {
+    public Ticket(String listadoArticulos, int importe, String observacion, String fecha, String numerodeMesa, String formadepago, String checkEd) {
         this.listadoArticulos = listadoArticulos;
         this.importe = importe;
         this.observacion = observacion;
         this.fecha = fecha;
         this.numerodeMesa = numerodeMesa;
         this.formadepago = formadepago;
+        this.checkEd = checkEd;
     }
 
   

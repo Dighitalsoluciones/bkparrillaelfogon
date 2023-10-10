@@ -20,19 +20,22 @@ public class dtoRecibos {
     private String numerodeMesa;
     @NotBlank
     private String formadepago;
+     @NotBlank
+    private String checkEd;
 
     //constructor
 
     public dtoRecibos() {
     }
 
-    public dtoRecibos(String fecha, String corresTicket, int importe, String observacion, String numerodeMesa, String formadepago) {
+    public dtoRecibos(String fecha, String corresTicket, int importe, String observacion, String numerodeMesa, String formadepago, String checkEd) {
         this.fecha = fecha;
         this.corresTicket = corresTicket;
         this.importe = importe;
         this.observacion = observacion;
         this.numerodeMesa = numerodeMesa;
         this.formadepago = formadepago;
+        this.checkEd = checkEd;
     }
     
 }

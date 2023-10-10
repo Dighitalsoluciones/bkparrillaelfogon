@@ -55,7 +55,9 @@ public class EgresosController {
     public ResponseEntity<?> create(@RequestBody dtoEgresos dtoegresos) {
         
         Egresos egresos = new Egresos(
-                dtoegresos.getFecha(), dtoegresos.getImporte(), dtoegresos.getTipodegasto(), dtoegresos.getRealizadopor(), dtoegresos.getObservacion(), dtoegresos.getMostrar());
+                dtoegresos.getFecha(), dtoegresos.getImporte(), dtoegresos.getTipodegasto(),
+                dtoegresos.getRealizadopor(), dtoegresos.getObservacion(),
+                dtoegresos.getMostrar(), dtoegresos.getCheckEd());
         sEgresos.save(egresos);
         return new ResponseEntity(new Mensaje("Nuevo Egreso creado exitosamente"), HttpStatus.OK);
     }
@@ -79,6 +81,7 @@ public class EgresosController {
         egresos.setRealizadopor(dtoegresos.getRealizadopor());
         egresos.setObservacion(dtoegresos.getObservacion());
         egresos.setMostrar(dtoegresos.getMostrar());
+        egresos.setCheckEd(dtoegresos.getCheckEd());
         
        
                

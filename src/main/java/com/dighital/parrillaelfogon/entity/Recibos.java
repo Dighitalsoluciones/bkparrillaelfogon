@@ -21,19 +21,21 @@ public class Recibos {
     private String observacion;
     private String numerodeMesa;
     private String formadepago;
+    private String checkEd;
     
     //constructor
 
     public Recibos() {
     }
 
-    public Recibos(String fecha, String corresTicket, int importe, String observacion, String numerodeMesa, String formadepago) {
+    public Recibos(String fecha, String corresTicket, int importe, String observacion, String numerodeMesa, String formadepago, String checkEd) {
         this.fecha = fecha;
         this.corresTicket = corresTicket;
         this.importe = importe;
         this.observacion = observacion;
         this.numerodeMesa = numerodeMesa;
         this.formadepago = formadepago;
+        this.checkEd = checkEd;
     }
     
 }

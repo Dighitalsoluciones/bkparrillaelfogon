@@ -20,18 +20,21 @@ public class dtoTicket {
     private String numerodeMesa;
     @NotBlank
     private String formadepago;
+    @NotBlank
+    private String checkEd;
     
     //constructor
 
     public dtoTicket() {
     }
 
-    public dtoTicket(int importe, String observacion, String fecha, String numerodeMesa, String formadepago) {
+    public dtoTicket(int importe, String observacion, String fecha, String numerodeMesa, String formadepago, String checkEd) {
         this.importe = importe;
         this.observacion = observacion;
         this.fecha = fecha;
         this.numerodeMesa = numerodeMesa;
         this.formadepago = formadepago;
+        this.checkEd = checkEd;
     }
     
 }

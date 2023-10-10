@@ -21,19 +21,21 @@ public class Egresos {
     private String realizadopor;
     private String observacion;
     private String mostrar;
+    private String checkEd;
     
     //constructor
 
     public Egresos() {
     }
 
-    public Egresos(String fecha, int importe, String tipodegasto, String realizadopor, String observacion, String mostrar) {
+    public Egresos(String fecha, int importe, String tipodegasto, String realizadopor, String observacion, String mostrar, String checkEd) {
         this.fecha = fecha;
         this.importe = importe;
         this.tipodegasto = tipodegasto;
         this.realizadopor = realizadopor;
         this.observacion = observacion;
         this.mostrar = mostrar;
+        this.checkEd = checkEd;
     }
     
 }
