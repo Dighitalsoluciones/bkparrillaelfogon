@@ -42,4 +42,17 @@ public class ServMesa1 {
     public boolean existByNumeroMesa(String numeromesa) {
         return rMesas1.existsByNumeroMesa(numeromesa);
     }
+
+    public void actualizarPosiciones(List<Mesas1> nuevasPosiciones) {
+        // Puedes implementar la lógica para actualizar las posiciones de las mesas aquí
+        // Por ejemplo:
+        for (Mesas1 mesa : nuevasPosiciones) {
+            Mesas1 mesaExistente = rMesas1.findById(mesa.getId()).orElse(null);
+            if (mesaExistente != null) {
+                mesaExistente.setX(mesa.getX());
+                mesaExistente.setY(mesa.getY());
+                rMesas1.save(mesaExistente);
+            }
+        }
+    }
 }
