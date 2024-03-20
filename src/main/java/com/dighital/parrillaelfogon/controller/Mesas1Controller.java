@@ -57,7 +57,7 @@ public class Mesas1Controller {
         
         Mesas1 mesas1 = new Mesas1(
                 dtomesas1.getEstado(), dtomesas1.getComanda(), dtomesas1.getCierre(), dtomesas1.getLiquidada(), dtomesas1.getImagen(), dtomesas1.getNumeroMesa(),dtomesas1.getTotalComanda(),dtomesas1.getComensales(),
-        dtomesas1.getImpresion());
+        dtomesas1.getImpresion(), dtomesas1.getX(), dtomesas1.getY(), dtomesas1.getRotacion());
         sMesas1.save(mesas1);
         return new ResponseEntity(new Mensaje("Nueva Mesa creada exitosamente"), HttpStatus.OK);
     }
@@ -84,9 +84,18 @@ public class Mesas1Controller {
         mesas1.setTotalComanda(dtomesas1.getTotalComanda());
         mesas1.setComensales(dtomesas1.getComensales());
         mesas1.setImpresion(dtomesas1.getImpresion());
+        mesas1.setX(dtomesas1.getX());
+        mesas1.setY(dtomesas1.getY());
+        mesas1.setRotacion(dtomesas1.getRotacion());
                
         sMesas1.save(mesas1);
         
         return new ResponseEntity(new Mensaje("Mesa actualizada correctamente"), HttpStatus.OK);
+    }
+    
+     @PutMapping("/updateAll")
+    public ResponseEntity<?> actualizarPosiciones(@RequestBody List<Mesas1> nuevasPosiciones) {
+        sMesas1.actualizarPosiciones(nuevasPosiciones);
+        return ResponseEntity.ok().build();
     }
 }

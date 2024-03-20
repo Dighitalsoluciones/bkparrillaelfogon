@@ -26,12 +26,18 @@ public class dtoMesas1 {
     private String comensales;
     @NotBlank
     private String impresion;
+    @NotBlank
+    private int x;
+    @NotBlank
+    private int y;
+
+    private int rotacion;
 
     //constructor
     public dtoMesas1() {
     }
 
-    public dtoMesas1(String estado, String comanda, String cierre, String liquidada, String imagen, String numeroMesa, String totalComanda, String comensales, String impresion) {
+    public dtoMesas1(String estado, String comanda, String cierre, String liquidada, String imagen, String numeroMesa, String totalComanda, String comensales, String impresion, int x, int y, int rotacion) {
         this.estado = estado;
         this.comanda = comanda;
         this.cierre = cierre;
@@ -41,6 +47,9 @@ public class dtoMesas1 {
         this.totalComanda = totalComanda;
         this.comensales = comensales;
         this.impresion = impresion;
+        this.x = x;
+        this.y = y;
+        this.rotacion = rotacion;
     }
 
 }
