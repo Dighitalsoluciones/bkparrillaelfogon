@@ -51,5 +51,4 @@ public class Mesas1 {
         this.y = y;
         this.rotacion = rotacion;
     }
-
 }

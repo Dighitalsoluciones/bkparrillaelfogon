@@ -26,9 +26,9 @@ public class dtoMesas1 {
     private String comensales;
     @NotBlank
     private String impresion;
-    @NotBlank
+
     private int x;
-    @NotBlank
+
     private int y;
 
     private int rotacion;

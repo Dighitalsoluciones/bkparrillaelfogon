@@ -1,4 +1,3 @@
-
 package com.dighital.parrillaelfogon.controller;
 
 import com.dighital.parrillaelfogon.dto.dtoMesas1;
@@ -24,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/mesas1")
 @CrossOrigin(origins = "https://parrielfogon.web.app")
 public class Mesas1Controller {
-    
+
     @Autowired()
     ServMesa1 sMesas1;
 
@@ -33,14 +32,14 @@ public class Mesas1Controller {
         List<Mesas1> list = sMesas1.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-    
+
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Mesas1> geyById(@PathVariable("id") int id){
-        if(!sMesas1.existsById(id)){
+    public ResponseEntity<Mesas1> geyById(@PathVariable("id") int id) {
+        if (!sMesas1.existsById(id)) {
             return new ResponseEntity(new Mensaje("Id inexistente"), HttpStatus.BAD_REQUEST);
         }
         Mesas1 mesas1 = sMesas1.getOne(id).get();
-        return new ResponseEntity(mesas1 ,HttpStatus.OK);
+        return new ResponseEntity(mesas1, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -54,27 +53,26 @@ public class Mesas1Controller {
 
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoMesas1 dtomesas1) {
-        
+
         Mesas1 mesas1 = new Mesas1(
-                dtomesas1.getEstado(), dtomesas1.getComanda(), dtomesas1.getCierre(), dtomesas1.getLiquidada(), dtomesas1.getImagen(), dtomesas1.getNumeroMesa(),dtomesas1.getTotalComanda(),dtomesas1.getComensales(),
-        dtomesas1.getImpresion(), dtomesas1.getX(), dtomesas1.getY(), dtomesas1.getRotacion());
+                dtomesas1.getEstado(), dtomesas1.getComanda(), dtomesas1.getCierre(), dtomesas1.getLiquidada(), dtomesas1.getImagen(), dtomesas1.getNumeroMesa(), dtomesas1.getTotalComanda(), dtomesas1.getComensales(),
+                dtomesas1.getImpresion(), dtomesas1.getX(), dtomesas1.getY(), dtomesas1.getRotacion());
         sMesas1.save(mesas1);
         return new ResponseEntity(new Mensaje("Nueva Mesa creada exitosamente"), HttpStatus.OK);
     }
 
-    
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoMesas1 dtomesas1){
-        if(!sMesas1.existsById(id)){
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoMesas1 dtomesas1) {
+        if (!sMesas1.existsById(id)) {
             return new ResponseEntity(new Mensaje("Id inexistente"), HttpStatus.NOT_FOUND);
         }
-        if(sMesas1.existByNumeroMesa(dtomesas1.getNumeroMesa()) && sMesas1.
-                getByNumeroMesa(dtomesas1.getNumeroMesa()).get().getId() != id){
-        return new ResponseEntity(new Mensaje("Campo existente"), HttpStatus.BAD_REQUEST);
-    }
-               
+        if (sMesas1.existByNumeroMesa(dtomesas1.getNumeroMesa()) && sMesas1.
+                getByNumeroMesa(dtomesas1.getNumeroMesa()).get().getId() != id) {
+            return new ResponseEntity(new Mensaje("Campo existente"), HttpStatus.BAD_REQUEST);
+        }
+
         Mesas1 mesas1 = sMesas1.getOne(id).get();
-        
+
         mesas1.setEstado(dtomesas1.getEstado());
         mesas1.setComanda(dtomesas1.getComanda());
         mesas1.setCierre(dtomesas1.getCierre());
@@ -87,13 +85,13 @@ public class Mesas1Controller {
         mesas1.setX(dtomesas1.getX());
         mesas1.setY(dtomesas1.getY());
         mesas1.setRotacion(dtomesas1.getRotacion());
-               
+
         sMesas1.save(mesas1);
-        
+
         return new ResponseEntity(new Mensaje("Mesa actualizada correctamente"), HttpStatus.OK);
     }
-    
-     @PutMapping("/updateAll")
+
+    @PutMapping("/updateAll")
     public ResponseEntity<?> actualizarPosiciones(@RequestBody List<Mesas1> nuevasPosiciones) {
         sMesas1.actualizarPosiciones(nuevasPosiciones);
         return ResponseEntity.ok().build();
