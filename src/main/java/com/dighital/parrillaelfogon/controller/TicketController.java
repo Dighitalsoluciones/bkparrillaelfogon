@@ -1,4 +1,3 @@
-
 package com.dighital.parrillaelfogon.controller;
 
 import com.dighital.parrillaelfogon.dto.dtoTicket;
@@ -21,25 +20,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/ticket")
-@CrossOrigin(origins = "https://parrielfogon.web.app")
+@CrossOrigin(origins = "http://localhost:4200")
 public class TicketController {
-    
+
     @Autowired
     ServTicket sTicket;
-    
-     @GetMapping("/lista")
+
+    @GetMapping("/lista")
     public ResponseEntity<List<Ticket>> list() {
         List<Ticket> list = sTicket.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-    
+
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Ticket> geyById(@PathVariable("id") int id){
-        if(!sTicket.existsById(id)){
+    public ResponseEntity<Ticket> geyById(@PathVariable("id") int id) {
+        if (!sTicket.existsById(id)) {
             return new ResponseEntity(new Mensaje("Id inexistente"), HttpStatus.BAD_REQUEST);
         }
         Ticket ticket = sTicket.getOne(id).get();
-        return new ResponseEntity(ticket ,HttpStatus.OK);
+        return new ResponseEntity(ticket, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -48,34 +47,33 @@ public class TicketController {
             return new ResponseEntity(new Mensaje("Id Inexistente"), HttpStatus.NOT_FOUND);
         }
         sTicket.delete(id);
-        return new ResponseEntity(new Mensaje("Objeto eliminado correctamente"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Ticket eliminado correctamente"), HttpStatus.OK);
     }
 
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoTicket dtoticket) {
-        
+
         Ticket ticket = new Ticket(
                 dtoticket.getListadoArticulos(), dtoticket.getImporte(),
                 dtoticket.getObservacion(), dtoticket.getFecha(),
                 dtoticket.getNumerodeMesa(), dtoticket.getFormadepago(),
-                dtoticket.getCheckEd());
+                dtoticket.getCheckEd(), dtoticket.getMesero());
         sTicket.save(ticket);
-        return new ResponseEntity(new Mensaje("Nueva Mesa creada exitosamente"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Nuevo Ticket creado exitosamente"), HttpStatus.OK);
     }
 
-    
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoTicket dtoticket){
-        if(!sTicket.existsById(id)){
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoTicket dtoticket) {
+        if (!sTicket.existsById(id)) {
             return new ResponseEntity(new Mensaje("Id inexistente"), HttpStatus.NOT_FOUND);
         }
-        if(sTicket.existByObservacion(dtoticket.getObservacion()) && sTicket.
-                getByFecha(dtoticket.getFecha()).get().getId() != id){
-        return new ResponseEntity(new Mensaje("Campo existente"), HttpStatus.BAD_REQUEST);
-    }
-               
+        if (sTicket.existByObservacion(dtoticket.getObservacion()) && sTicket.
+                getByFecha(dtoticket.getFecha()).get().getId() != id) {
+            return new ResponseEntity(new Mensaje("Campo existente"), HttpStatus.BAD_REQUEST);
+        }
+
         Ticket ticket = sTicket.getOne(id).get();
-        
+
         ticket.setListadoArticulos(dtoticket.getListadoArticulos());
         ticket.setImporte(dtoticket.getImporte());
         ticket.setObservacion(dtoticket.getObservacion());
@@ -83,9 +81,10 @@ public class TicketController {
         ticket.setNumerodeMesa(dtoticket.getNumerodeMesa());
         ticket.setFormadepago(dtoticket.getFormadepago());
         ticket.setCheckEd(dtoticket.getCheckEd());
+        ticket.setMesero(dtoticket.getMesero());
 
         sTicket.save(ticket);
-        
-        return new ResponseEntity(new Mensaje("Mesa actualizada correctamente"), HttpStatus.OK);
+
+        return new ResponseEntity(new Mensaje("Ticket actualizado correctamente"), HttpStatus.OK);
     }
 }
