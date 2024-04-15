@@ -23,16 +23,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/mesas1")
 @CrossOrigin(origins = "http://localhost:4200")
 public class Mesas1Controller {
-
+    
     @Autowired()
     ServMesa1 sMesas1;
-
+    
     @GetMapping("/lista")
     public ResponseEntity<List<Mesas1>> list() {
         List<Mesas1> list = sMesas1.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-
+    
     @GetMapping("/detail/{id}")
     public ResponseEntity<Mesas1> geyById(@PathVariable("id") int id) {
         if (!sMesas1.existsById(id)) {
@@ -41,7 +41,7 @@ public class Mesas1Controller {
         Mesas1 mesas1 = sMesas1.getOne(id).get();
         return new ResponseEntity(mesas1, HttpStatus.OK);
     }
-
+    
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!sMesas1.existsById(id)) {
@@ -50,17 +50,18 @@ public class Mesas1Controller {
         sMesas1.delete(id);
         return new ResponseEntity(new Mensaje("Objeto eliminado correctamente"), HttpStatus.OK);
     }
-
+    
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoMesas1 dtomesas1) {
-
+        
         Mesas1 mesas1 = new Mesas1(
-                dtomesas1.getEstado(), dtomesas1.getComanda(), dtomesas1.getCierre(), dtomesas1.getLiquidada(), dtomesas1.getImagen(), dtomesas1.getNumeroMesa(), dtomesas1.getTotalComanda(), dtomesas1.getComensales(),
-                dtomesas1.getImpresion(), dtomesas1.getX(), dtomesas1.getY(), dtomesas1.getRotacion());
+                dtomesas1.getEstado(), dtomesas1.getComanda(), dtomesas1.getCierre(), dtomesas1.getLiquidada(),
+                dtomesas1.getImagen(), dtomesas1.getNumeroMesa(), dtomesas1.getTotalComanda(), dtomesas1.getComensales(),
+                dtomesas1.getImpresion(), dtomesas1.getX(), dtomesas1.getY(), dtomesas1.getRotacion(), dtomesas1.getMesero());
         sMesas1.save(mesas1);
         return new ResponseEntity(new Mensaje("Nueva Mesa creada exitosamente"), HttpStatus.OK);
     }
-
+    
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoMesas1 dtomesas1) {
         if (!sMesas1.existsById(id)) {
@@ -70,9 +71,9 @@ public class Mesas1Controller {
                 getByNumeroMesa(dtomesas1.getNumeroMesa()).get().getId() != id) {
             return new ResponseEntity(new Mensaje("Campo existente"), HttpStatus.BAD_REQUEST);
         }
-
+        
         Mesas1 mesas1 = sMesas1.getOne(id).get();
-
+        
         mesas1.setEstado(dtomesas1.getEstado());
         mesas1.setComanda(dtomesas1.getComanda());
         mesas1.setCierre(dtomesas1.getCierre());
@@ -85,12 +86,13 @@ public class Mesas1Controller {
         mesas1.setX(dtomesas1.getX());
         mesas1.setY(dtomesas1.getY());
         mesas1.setRotacion(dtomesas1.getRotacion());
-
+        mesas1.setMesero(dtomesas1.getMesero());
+        
         sMesas1.save(mesas1);
-
+        
         return new ResponseEntity(new Mensaje("Mesa actualizada correctamente"), HttpStatus.OK);
     }
-
+    
     @PutMapping("/updateAll")
     public ResponseEntity<?> actualizarPosiciones(@RequestBody List<Mesas1> nuevasPosiciones) {
         sMesas1.actualizarPosiciones(nuevasPosiciones);

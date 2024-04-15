@@ -32,12 +32,13 @@ public class Mesas1 {
     private int x;
     private int y;
     private int rotacion;
+    private String mesero;
 
     //Constructor
     public Mesas1() {
     }
 
-    public Mesas1(String estado, String comanda, String cierre, String liquidada, String imagen, String numeroMesa, String totalComanda, String comensales, String impresion, int x, int y, int rotacion) {
+    public Mesas1(String estado, String comanda, String cierre, String liquidada, String imagen, String numeroMesa, String totalComanda, String comensales, String impresion, int x, int y, int rotacion, String mesero) {
         this.estado = estado;
         this.comanda = comanda;
         this.cierre = cierre;
@@ -50,5 +51,7 @@ public class Mesas1 {
         this.x = x;
         this.y = y;
         this.rotacion = rotacion;
+        this.mesero = mesero;
     }
+
 }

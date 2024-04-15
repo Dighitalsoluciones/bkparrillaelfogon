@@ -1,4 +1,3 @@
-
 package com.dighital.parrillaelfogon.entity;
 
 import javax.persistence.Column;
@@ -13,6 +12,7 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Ticket {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -24,13 +24,13 @@ public class Ticket {
     private String numerodeMesa;
     private String formadepago;
     private String checkEd;
-    
-    //constructor
+    private String mesero;
 
+    //constructor
     public Ticket() {
     }
 
-    public Ticket(String listadoArticulos, int importe, String observacion, String fecha, String numerodeMesa, String formadepago, String checkEd) {
+    public Ticket(String listadoArticulos, int importe, String observacion, String fecha, String numerodeMesa, String formadepago, String checkEd, String mesero) {
         this.listadoArticulos = listadoArticulos;
         this.importe = importe;
         this.observacion = observacion;
@@ -38,7 +38,7 @@ public class Ticket {
         this.numerodeMesa = numerodeMesa;
         this.formadepago = formadepago;
         this.checkEd = checkEd;
+        this.mesero = mesero;
     }
 
-  
 }
