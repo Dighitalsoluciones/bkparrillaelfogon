@@ -26,6 +26,7 @@ public class dtoArticulos {
     private String imagen;
     private int cantidad;
     private String checkEdit;
+    private String isTrazable;
     
     
     //constructor
@@ -33,8 +34,7 @@ public class dtoArticulos {
     public dtoArticulos() {
     }
 
-    public dtoArticulos(String nombre, String familia, int stock, int puntorepo, int costo, int precioventa, int stockinicial,
-                        String imagen, int cantidad, String checkEdit) {
+    public dtoArticulos(String nombre, String familia, int stock, int puntorepo, int costo, int precioventa, int stockinicial, String imagen, int cantidad, String checkEdit, String isTrazable) {
         this.nombre = nombre;
         this.familia = familia;
         this.stock = stock;
@@ -45,6 +45,9 @@ public class dtoArticulos {
         this.imagen = imagen;
         this.cantidad = cantidad;
         this.checkEdit = checkEdit;
+        this.isTrazable = isTrazable;
     }
+
+   
     
 }
