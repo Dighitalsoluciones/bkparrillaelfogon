@@ -1,5 +1,6 @@
 package com.dighital.parrillaelfogon.controller;
 
+import com.dighital.parrillaelfogon.dto.dtoArticuloStock;
 import com.dighital.parrillaelfogon.dto.dtoArticulos;
 import com.dighital.parrillaelfogon.entity.Articulos;
 import com.dighital.parrillaelfogon.security.controller.Mensaje;
@@ -108,5 +109,19 @@ public class ArticulosController {
         sArticulos.save(articulos);
 
         return new ResponseEntity(new Mensaje("Objeto actualizado correctamente"), HttpStatus.OK);
+    }
+
+    @PutMapping("/updatestock/{id}")
+    public ResponseEntity<?> updateStock(@PathVariable("id") int id, @RequestBody dtoArticuloStock dtoarticuloStock) {
+        if (!sArticulos.existsById(id)) {
+            return new ResponseEntity(new Mensaje("Id inexistente"), HttpStatus.NOT_FOUND);
+        }
+
+        Articulos articulos = sArticulos.getOne(id).get();
+
+        articulos.setStock(dtoarticuloStock.getStock());
+        sArticulos.save(articulos);
+
+        return new ResponseEntity(new Mensaje("Stock actualizado correctamente"), HttpStatus.OK);
     }
 }
