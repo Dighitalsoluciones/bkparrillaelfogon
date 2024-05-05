@@ -27,6 +27,7 @@ public class Articulos {
     private String imagen;
     private int cantidad;
     private String checkEdit;
+    @Column(name = "isTrazable", nullable = false, columnDefinition = "varchar(255) default 'false'")
     private String isTrazable;
 
     //Constructor
